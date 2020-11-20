@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1018909645536",
+    "firebase_url": "https://snowman-labs.firebaseio.com",
+    "project_id": "snowman-labs",
+    "storage_bucket": "snowman-labs.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1018909645536:android:7e1521e9da7e8e441a0e85",
+        "android_client_info": {
+          "package_name": "br.com.jardiano.snowmanlabs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1018909645536-vhocu0vp012hjjarpp3jk837ruga681i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDKUJ0XefCO4JBX-gsALiacyoKnLqGtyQ4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1018909645536-vhocu0vp012hjjarpp3jk837ruga681i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
