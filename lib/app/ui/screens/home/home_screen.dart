@@ -15,38 +15,42 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xff10159A),
-        title: Container(
-          color:  Colors.grey.withOpacity(0.7),
-          child: GetX<HomeController>(
-            builder: (_) {
-              if (!_.isSearch) {
-                return Text("TITLE_HOME_SCREEN".tr);
-              } else {
-                return TextField(
+        title: GetX<HomeController>(
+        builder: (_) { return Container(
+          color:  _.isSearch ? Color(0xff0F137A) : Color(0xff10159A),
+          child: !_.isSearch
+                 ? Text("TITLE_HOME_SCREEN".tr)
+                 : TextField(
                   controller: _.searchCtrl,
                   autofocus: true,
+                  style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: 'SEARCH_HOME_SCREEN'.tr,
+                    hintStyle: TextStyle(color: Colors.white),
                     prefixIcon: IconButton(
-                      icon: Icon(Icons.search),
+                      icon: Icon(Icons.search, color: Colors.white,),
                       onPressed: () {},
                     ),
                     suffixIcon: IconButton(
-                      icon: Icon(Icons.clear),
-                      onPressed: () {
-                        _homeController.searchCtrl.clear();
-                        _homeController.activeSearch();
-                      },
-                    ),
+                          icon: Row(
+                            children: [
+                             // Text('| ', style: TextStyle(color: Colors.white,),),
+                              Icon(Icons.clear, color: Colors.white,),
+                            ],
+                          ),
+                          onPressed: () {
+                            _homeController.searchCtrl.clear();
+                            _homeController.activeSearch();
+                          },
+                        ),
                   ),
                   onChanged: (value) {
                     _.searchChange(value);
                   },
-                );
-              }
-            },
-          ),
+                ),
+          );
+        },
         ),
         centerTitle: true,
         actions: [
@@ -64,9 +68,9 @@ class HomeScreen extends StatelessWidget {
       ),
       body: GetX<HomeController>(
         builder: (_) {
-          return TodoList(
+          return _.todos != null ? TodoList(
             faq: _.todos,
-          );
+          ) : Center(child: CircularProgressIndicator(),);
         },
       ),
       bottomNavigationBar: Padding(
@@ -74,7 +78,7 @@ class HomeScreen extends StatelessWidget {
         child: RaisedButton(
           color: Colors.yellow[500],
           onPressed: () {
-            Get.to(CadastrarScreen());
+            Get.toNamed('/cadastrar');
           },
           textColor: Colors.white,
           child: Container(
@@ -87,7 +91,7 @@ class HomeScreen extends StatelessWidget {
                   child: new Center(
                     child: new Text(
                       "ADD_QUESTIONS".tr,
-                      style: new TextStyle(color: Colors.black, fontSize: 18.0),
+                      style: new TextStyle(color: Color(0xff10159A), fontSize: 18.0, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

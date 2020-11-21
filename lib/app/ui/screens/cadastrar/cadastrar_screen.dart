@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:snowmanlabs/app/controller/cadastrar_controller.dart';
+import 'package:snowmanlabs/app/utils/snackbar.dart';
 
 class CadastrarScreen extends StatelessWidget {
   //final CadastrarController _cadastrarController = Get.find<CadastrarController>();
@@ -142,7 +143,7 @@ class CadastrarScreen extends StatelessWidget {
                           padding: EdgeInsets.all(8.0),
                           child: RaisedButton(
                             color: Colors.yellow[500],
-                            onPressed: () => _cadastrarController.addFaq(),
+                            onPressed: () => _cadastrarController.addFaq(context: context),
                             textColor: Colors.white,
                             child: Container(
                               height: 50.0,
@@ -155,8 +156,10 @@ class CadastrarScreen extends StatelessWidget {
                                       child: new Text(
                                         "ADD_QUESTION".tr,
                                         style: new TextStyle(
-                                            color: Colors.black,
-                                            fontSize: 18.0),
+                                          color: Color(0xff10159A),
+                                            fontSize: 18.0,
+                                            fontWeight: FontWeight.bold,
+                                        ),
                                       ),
                                     ),
                                   ),

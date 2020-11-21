@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 final ThemeData appThemeData = ThemeData(
@@ -11,4 +10,5 @@ final ThemeData appThemeData = ThemeData(
   appBarTheme: AppBarTheme(
     color: Colors.white,
   ),
+  platform: TargetPlatform.iOS
 );
